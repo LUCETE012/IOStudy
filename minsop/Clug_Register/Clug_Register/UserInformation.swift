@@ -20,12 +20,28 @@ class UserInformation{
     
     var phoneNumber: String?
     var birthdaydate : String?
+    var introducing: String?
+    
     
     var image: UIImage?
     
     func printIDPASSWORD(){
         print("\(id)  ----  \(password) ")
     }
+    
+    func updateIdAndPassword(id: String, password: String , introducing: String ){
+    
+        self.id = id
+        self.password = password
+        self.introducing = introducing
+    
+    }
+    
+    func updateDetails( phoneNumber: String, birthdaydate: String  ){
+        self.phoneNumber = phoneNumber
+        self.birthdaydate = birthdaydate
+    }
+    
     
     
 }
