@@ -31,16 +31,17 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="na2-Gp-oF3">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="na2-Gp-oF3">
                                 <rect key="frame" x="72" y="507" width="70" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="2Mv-51-0vI"/>
                                     <constraint firstAttribute="height" constant="40" id="3ik-1g-JlX"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
-                                </state>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dlF-ag-nTM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGT-l3-RUb">
                                 <rect key="frame" x="272" y="507" width="70" height="40"/>
@@ -90,11 +91,38 @@
                     <connections>
                         <outlet property="idField" destination="IQx-wI-7uH" id="yTz-ba-6Ot"/>
                         <outlet property="passwordField" destination="Gb5-wb-iyC" id="zkE-vO-cpK"/>
+                        <outlet property="signInButton" destination="na2-Gp-oF3" id="gtQ-RT-WTx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="789.85507246376812" y="138.61607142857142"/>
+        </scene>
+        <!--Sign In Success View Controller-->
+        <scene sceneID="F6e-bL-bhf">
+            <objects>
+                <viewController storyboardIdentifier="SignInSuccessViewController" id="NVt-qQ-jeN" customClass="SignInSuccessViewController" customModule="Clug_Register" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YbF-w9-aI4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cQI-ix-Xrf">
+                                <rect key="frame" x="60.5" y="307.5" width="293.5" height="283.5"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="250"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fGp-MY-Z2z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cQI-ix-Xrf" firstAttribute="centerY" secondItem="YbF-w9-aI4" secondAttribute="centerY" id="OGD-Ad-Voc"/>
+                            <constraint firstItem="cQI-ix-Xrf" firstAttribute="centerX" secondItem="YbF-w9-aI4" secondAttribute="centerX" id="fSa-Xg-zcz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JXf-97-bkD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQp-k6-lLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="871"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="vYs-vg-uUl">
@@ -143,9 +171,10 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z1-Wj-5Qa">
-                                <rect key="frame" x="233" y="780" width="48.5" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음"/>
+                                <rect key="frame" x="242" y="780" width="30" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="다음"/>
                                 <connections>
                                     <action selector="touchUpNext:" destination="xKy-VO-8hb" eventType="touchUpInside" id="1bT-kT-Ex4"/>
                                     <segue destination="40b-6r-gWm" kind="show" id="cKp-ku-7ui"/>
@@ -230,7 +259,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g56-lG-DZs">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g56-lG-DZs">
                                 <rect key="frame" x="10" y="199.5" width="394" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="11717829.868800998">
                                     <!--2001-05-16 14:57:09 +0000-->
@@ -318,15 +347,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="face.smiling.fill" catalog="system" width="128" height="121"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

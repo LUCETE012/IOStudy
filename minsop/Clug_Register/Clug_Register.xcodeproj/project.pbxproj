@@ -16,6 +16,7 @@
 		BE23365D28910DAE00C8E21F /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23365C28910DAE00C8E21F /* UserInformation.swift */; };
 		BE23365F28911F7500C8E21F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE23365E28911F7500C8E21F /* RegisterViewController.swift */; };
 		BE233661289187A200C8E21F /* RegisterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE233660289187A200C8E21F /* RegisterDetailsViewController.swift */; };
+		BE2336632891A42500C8E21F /* SignInSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2336622891A42500C8E21F /* SignInSuccessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BE23365C28910DAE00C8E21F /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		BE23365E28911F7500C8E21F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE233660289187A200C8E21F /* RegisterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailsViewController.swift; sourceTree = "<group>"; };
+		BE2336622891A42500C8E21F /* SignInSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSuccessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +66,12 @@
 			children = (
 				BE2336242890CE5600C8E21F /* AppDelegate.swift */,
 				BE2336262890CE5600C8E21F /* SceneDelegate.swift */,
-				BE2336282890CE5600C8E21F /* ViewController.swift */,
 				BE23362A2890CE5600C8E21F /* Main.storyboard */,
+				BE2336622891A42500C8E21F /* SignInSuccessViewController.swift */,
+				BE2336282890CE5600C8E21F /* ViewController.swift */,
 				BE23365E28911F7500C8E21F /* RegisterViewController.swift */,
-				BE23365C28910DAE00C8E21F /* UserInformation.swift */,
 				BE233660289187A200C8E21F /* RegisterDetailsViewController.swift */,
+				BE23365C28910DAE00C8E21F /* UserInformation.swift */,
 				BE23362D2890CE5700C8E21F /* Assets.xcassets */,
 				BE23362F2890CE5700C8E21F /* LaunchScreen.storyboard */,
 				BE2336322890CE5700C8E21F /* Info.plist */,
@@ -149,6 +152,7 @@
 			files = (
 				BE233661289187A200C8E21F /* RegisterDetailsViewController.swift in Sources */,
 				BE23365D28910DAE00C8E21F /* UserInformation.swift in Sources */,
+				BE2336632891A42500C8E21F /* SignInSuccessViewController.swift in Sources */,
 				BE23365F28911F7500C8E21F /* RegisterViewController.swift in Sources */,
 				BE2336292890CE5600C8E21F /* ViewController.swift in Sources */,
 				BE2336252890CE5600C8E21F /* AppDelegate.swift in Sources */,

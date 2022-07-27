@@ -27,6 +27,7 @@ class RegisterDetailsViewController: UIViewController {
     }()
     
     @IBAction func didDatePickerValueChanged(_ sender: UIDatePicker){
+        //pickerview.addtarget으로 추가
         print("picker view 바뀜")
         
         let date: Date = self.datePicker.date
@@ -39,19 +40,21 @@ class RegisterDetailsViewController: UIViewController {
     
     
     @IBAction func didphoneNumberTextFieldChanged(_ sender: UITextField){
+        //addtarget으로 추가
         print("전화번호 text field 바뀜")
         registerbuttonEnableIfValidInput()
     }
     
     
     
-    //버튼 처리
+    //-- 버튼 처리
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         
         //dismisss는 modal을 없애는 메소드
         // 초기화면에 modal로 navigation view controller가 스택에 registerview , registerdetailview를 담고 있는 상황
         //dismiss하면 modal로 연결되어 있는 navigation view controller를 없앰
+        UserInformation.shared.removeData()
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -64,6 +67,20 @@ class RegisterDetailsViewController: UIViewController {
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
+        UserInformation.shared.updateDetails(phoneNumber: phoneNumber.text!, birthdaydate: dateLabel.text! )
+        
+        
+        let preVC = self.presentingViewController
+        guard let vc = preVC as? ViewController else {
+            return
+        }
+        
+        vc.idField.text = UserInformation.shared.id
+        vc.passwordField.text = UserInformation.shared.password
+        vc.signInButton.isEnabled = true
+        
+        
+        self.dismiss(animated: true, completion: nil)
         
         
         
@@ -74,7 +91,7 @@ class RegisterDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.datePicker.addTarget(self, action: #selector(didDatePickerValueChanged(_ :) ), for: UIControl.Event.valueChanged )
-        self.registerButton.addTarget(self, action: #selector(self.didphoneNumberTextFieldChanged(_:)), for: .editingChanged)
+        self.phoneNumber.addTarget(self, action: #selector(self.didphoneNumberTextFieldChanged(_:)), for: .editingChanged)
         // Do any additional setup after loading the view.
     }
     

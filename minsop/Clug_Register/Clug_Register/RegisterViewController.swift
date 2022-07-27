@@ -50,6 +50,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("이미지뷰.Image \(imageView.image)  \(imageView.image != nil) ")
+        
         
         //이렇게 말고도 @iabaction으로 editing change 생성 가능
         self.idField.addTarget(self, action: #selector(self.textFieldsDidChange(_:)), for: .editingChanged)
@@ -63,7 +65,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     
     //text field들이 변할때 호출되는 함수
     @objc private func textFieldsDidChange(_ sender: Any?) {
-        print("textFieldsDidBeginEditing 실행")
+//        print("textFieldsDidBeginEditing 실행")
         buttonEnableIfValidInput()
         
     }
@@ -88,7 +90,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     //유효성 검사
     func isvalidatetextfieldinput()-> Bool{
         
-        if idField.text?.isEmpty == false , passwordField.text?.isEmpty == false, passwordField2.text?.isEmpty == false, introducingField.text.isEmpty == false, passwordField.text!.compare(passwordField2.text!) == ComparisonResult.orderedSame {
+        if imageView.image != nil ,idField.text?.isEmpty == false , passwordField.text?.isEmpty == false, passwordField2.text?.isEmpty == false, introducingField.text.isEmpty == false, passwordField.text!.compare(passwordField2.text!) == ComparisonResult.orderedSame {
             return true
         }else{
             return false
@@ -96,8 +98,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
         
     }
     
-    
-    
+
     
     //UIImagePickerControllerDelegate , UINavigationControllerDelegate 함수 추가
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -105,15 +106,16 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     }
     
     
-    //info는 딕셔너리 타입으로 가지고 있는 거제
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        //info는 딕셔너리 타입으로 가지고 있는 거제
         if let originalImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.imageView.image = originalImage
             UserInformation.shared.image = originalImage
         }
         
-        self.dismiss(animated: true, completion: nil)
+        //추가하고 나서 pickerview를 없애고난 completion으로 buttonEnableIfValidInput 실행 -> 이미지를 마지막에 넣어도 validate 검사 진행 
+        self.dismiss(animated: true, completion: self.buttonEnableIfValidInput )
         
         
         
