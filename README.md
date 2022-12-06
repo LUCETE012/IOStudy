@@ -1,2 +1,2 @@
 # IOStudy
-IOStudy입니다
+2022-S CLUG 
